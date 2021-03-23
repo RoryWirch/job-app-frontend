@@ -19,4 +19,12 @@ export class JobApplicationService {
   createJobApplication(jobApplication: JobApplication): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`, jobApplication);
   }
+
+  getJobApplicationById(id: number): Observable<JobApplication>{
+    return this.httpClient.get<JobApplication>(`${this.baseURL}/${id}`);
+  }
+
+  updateJobApplication(id: number, jobApplication: JobApplication): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, jobApplication);
+  }
 }

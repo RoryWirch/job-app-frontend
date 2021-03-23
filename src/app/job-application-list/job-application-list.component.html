@@ -8,6 +8,7 @@
                 <th> Company Name</th>
                 <th> Date Applied</th>
                 <th> Notes</th>
+                <th> Actions </th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,9 @@
                 <td> {{ jobApplication.companyName}}</td>
                 <td> {{ jobApplication.dateApplied}}</td>
                 <td> {{ jobApplication.notes}}</td>
+                <td>
+                    <button (click) = "updateJobApplication(jobApplication.id)" class = "btn btn-info"> Update </button>
+                </td>
             </tr>
         </tbody>
     </table>

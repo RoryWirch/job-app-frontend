@@ -11,17 +11,17 @@ import { JobApplicationService } from '../job-application.service';
 })
 export class CreateJobApplicationComponent implements OnInit {
 
-  jobApplication: JobApplication = new JobApplication();
+  jobApplication: JobApplication = new JobApplication(0,'','','','');
 
-  constructor(private jobApplicatoinService: JobApplicationService, private router: Router) {
-    console.log(this.jobApplication);
+  constructor(private jobApplicationService: JobApplicationService, private router: Router) {
   }
 
   ngOnInit(): void {
+
   }
 
   saveJobApplication(){
-    this.jobApplicatoinService.createJobApplication(this.jobApplication).subscribe(data => {
+    this.jobApplicationService.createJobApplication(this.jobApplication).subscribe(data => {
       console.log(data);
       this.goToJobApplicationList();
     }, error => {console.log(error);});

@@ -1,0 +1,34 @@
+<p>update-job-application works!</p>
+<div class="col-md-6 offset-md-3">
+
+    <h3>Update Job Application</h3>
+
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" class="form-control" id="jobTitle"
+                [(ngModel)] = "jobApplication.jobTitle" name = "jobTitle">
+        </div>
+        
+        <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" class="form-control" id="companyName"
+                [(ngModel)] = "jobApplication.companyName" name = "companyName">
+        </div>
+
+        <div class="form-group">
+            <label>Date Applied</label>
+            <input type="text" class="form-control" id="dateApplied"
+                [(ngModel)] = "jobApplication.dateApplied" name = "dateApplied">
+        </div>
+
+        <div class="form-group">
+            <label>Notes</label>
+            <input type="text" class="form-control" id="notes"
+                [(ngModel)] = "jobApplication.notes" name = "notes">
+        </div>
+
+        <button class="btn btn-success" type="submit">Update Job Application</button>
+
+    </form>
+</div>

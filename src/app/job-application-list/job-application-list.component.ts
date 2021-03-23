@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobApplication } from '../job-application';
 import { JobApplicationService } from '../job-application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-application-list',
@@ -9,9 +10,10 @@ import { JobApplicationService } from '../job-application.service';
 })
 export class JobApplicationListComponent implements OnInit {
 
-  jobApplications: JobApplication[] | undefined;
+  jobApplications: JobApplication[] = [];
 
-  constructor(private jobApplicationService: JobApplicationService) { }
+  constructor(private jobApplicationService: JobApplicationService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getJobApplications()
@@ -20,7 +22,11 @@ export class JobApplicationListComponent implements OnInit {
   private getJobApplications() {
     this.jobApplicationService.getJobApplicationsList().subscribe( data => {
       this.jobApplications = data;
-    })
+    });
+  }
+
+  updateJobApplication(id: number){
+    this.router.navigate(['update-job-application', id]);
   }
 
 }
